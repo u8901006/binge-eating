@@ -1,0 +1,103 @@
+name: BED Daily Report
+
+on:
+  schedule:
+    - cron: "40 23 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Target date (YYYY-MM-DD), leave empty for today"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24"
+
+      - name: Cache npm
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: scripts/node_modules
+          key: ${{ runner.os }}-node24-${{ hashFiles('scripts/package.json') }}
+          restore-keys: ${{ runner.os }}-node24-
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: scripts
+
+      - name: Determine date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            echo "target=${{ github.event.inputs.date }}" >> "$GITHUB_OUTPUT"
+          else
+            TARGET=$(TZ=Asia/Taipei date +%Y-%m-%d)
+            echo "target=$TARGET" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Date: $(grep target "$GITHUB_OUTPUT" | cut -d= -f2)"
+
+      - name: Fetch papers from PubMed
+        run: node fetch_papers.mjs --days 7 --max-papers 50 --output ../../papers.json
+        working-directory: scripts
+        continue-on-error: true
+
+      - name: Check papers data
+        id: papers
+        run: |
+          if [ -f papers.json ] && grep -q '"count"' papers.json; then
+            COUNT=$(node -e "const d=require('./papers.json'); console.log(d.count||0)")
+            echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+            echo "Papers found: $COUNT"
+          else
+            echo "count=0" >> "$GITHUB_OUTPUT"
+            echo '{"date":"${{ steps.date.outputs.target }}","count":0,"papers":[]}' > papers.json
+            echo "No papers found, will generate empty report"
+          fi
+
+      - name: Generate report with Zhipu AI
+        env:
+          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+        run: |
+          node generate_report.mjs \
+            --input ../../papers.json \
+            --output ../docs/bed-${{ steps.date.outputs.target }}.html
+        working-directory: scripts
+
+      - name: Update summarized PMIDs
+        run: node update_summarized.mjs
+        working-directory: scripts
+
+      - name: Generate index page
+        run: node generate_index.mjs
+        working-directory: scripts
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ data/
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "📄 BED daily report: ${{ steps.date.outputs.target }}"
+          git pull --rebase origin main
+          git push
+
+      - name: Summary
+        run: |
+          echo "### 📄 Binge Eating Daily Report" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Date:** ${{ steps.date.outputs.target }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Papers analyzed:** ${{ steps.papers.outputs.count }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Report:** [bed-${{ steps.date.outputs.target }}.html](https://u8901006.github.io/binge-eating/bed-${{ steps.date.outputs.target }}.html)" >> "$GITHUB_STEP_SUMMARY"
