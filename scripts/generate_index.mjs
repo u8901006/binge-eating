@@ -4,9 +4,14 @@
  * Reads existing reports from docs/ folder.
  */
 
-import { readdirSync, writeFileSync } from 'node:fs';
+import { readdirSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const docsDir = 'docs';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const docsDir = resolve(__dirname, '..', 'docs');
+
+if (!existsSync(docsDir)) mkdirSync(docsDir, { recursive: true });
 const files = readdirSync(docsDir)
   .filter(f => f.startsWith('bed-') && f.endsWith('.html'))
   .sort()

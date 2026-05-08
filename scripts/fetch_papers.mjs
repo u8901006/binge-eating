@@ -5,7 +5,11 @@
  */
 
 import { writeFileSync, readFileSync, existsSync } from 'node:fs';
-import { URL, URLSearchParams } from 'node:url';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootDir = resolve(__dirname, '..');
 
 const PUBMED_SEARCH = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi';
 const PUBMED_FETCH = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi';
@@ -172,7 +176,7 @@ async function fetchDetails(pmids) {
 }
 
 function loadSummarizedPmids() {
-  const path = 'data/summarized_pmids.json';
+  const path = resolve(rootDir, 'data', 'summarized_pmids.json');
   if (existsSync(path)) {
     try {
       return new Set(JSON.parse(readFileSync(path, 'utf-8')));
@@ -187,7 +191,7 @@ async function main() {
   const args = process.argv.slice(2);
   let days = 7;
   let maxPapers = 50;
-  let outputPath = 'papers.json';
+  let outputPath = resolve(rootDir, 'papers.json');
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--days' && args[i + 1]) { days = parseInt(args[++i], 10); }

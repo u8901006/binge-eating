@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-/**
- * Update the list of summarized PMIDs after a successful report generation.
- */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const DATA_PATH = 'data/summarized_pmids.json';
-const PAPERS_PATH = 'papers.json';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootDir = resolve(__dirname, '..');
+const DATA_PATH = resolve(rootDir, 'data', 'summarized_pmids.json');
+const PAPERS_PATH = resolve(rootDir, 'papers.json');
 
 function main() {
   let existing = new Set();

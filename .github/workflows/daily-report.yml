@@ -51,7 +51,7 @@ jobs:
           echo "Date: $(grep target "$GITHUB_OUTPUT" | cut -d= -f2)"
 
       - name: Fetch papers from PubMed
-        run: node fetch_papers.mjs --days 7 --max-papers 50 --output ../../papers.json
+        run: node fetch_papers.mjs --days 7 --max-papers 50
         working-directory: scripts
         continue-on-error: true
 
@@ -73,7 +73,6 @@ jobs:
           ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
         run: |
           node generate_report.mjs \
-            --input ../../papers.json \
             --output ../docs/bed-${{ steps.date.outputs.target }}.html
         working-directory: scripts
 

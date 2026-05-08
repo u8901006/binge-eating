@@ -4,8 +4,12 @@
  * Reads papers JSON, analyzes with AI, generates styled HTML.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootDir = resolve(__dirname, '..');
 
 const API_BASE = process.env.ZHIPU_API_BASE || 'https://open.bigmodel.cn/api/coding/paas/v4';
 const MODELS = ['GLM-5-Turbo', 'GLM-4.7', 'GLM-4.7-Flash'];
@@ -405,8 +409,8 @@ function generateHtml(analysis) {
 
 async function main() {
   const args = process.argv.slice(2);
-  let inputPath = 'papers.json';
-  let outputPath = 'docs/bed-report.html';
+  let inputPath = resolve(rootDir, 'papers.json');
+  let outputPath = resolve(rootDir, 'docs', 'bed-report.html');
   const apiKey = process.env.ZHIPU_API_KEY || '';
 
   for (let i = 0; i < args.length; i++) {
