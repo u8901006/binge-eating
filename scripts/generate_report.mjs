@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generate BED daily report HTML using Zhipu AI (GLM-5-Turbo).
+ * Generate BED daily report HTML using NVIDIA Nemotron.
  * Reads papers JSON, analyzes with AI, generates styled HTML.
  */
 
@@ -11,9 +11,9 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
 
-const API_BASE = process.env.ZHIPU_API_BASE || 'https://open.bigmodel.cn/api/coding/paas/v4';
-const MODELS = ['GLM-5-Turbo', 'GLM-4.7', 'GLM-4.7-Flash'];
-const MAX_TOKENS = 50000;
+const API_BASE = process.env.NVIDIA_API_BASE || 'https://integrate.api.nvidia.com/v1';
+const MODELS = ['nvidia/nemotron-3-super-120b-a12b', 'nvidia/nemotron-3-nano-30b-a3b'];
+const MAX_TOKENS = 16384;
 const TIMEOUT_MS = 480000;
 const MAX_RETRIES = 3;
 
@@ -142,9 +142,11 @@ ${papersText}
             { role: 'system', content: SYSTEM_PROMPT },
             { role: 'user', content: prompt },
           ],
-          temperature: 0.3,
-          top_p: 0.9,
+          temperature: 1.0,
+          top_p: 0.95,
           max_tokens: MAX_TOKENS,
+          stream: false,
+          chat_template_kwargs: { enable_thinking: false },
         };
 
         const resp = await fetch(`${API_BASE}/chat/completions`, {
@@ -362,7 +364,7 @@ function generateHtml(analysis) {
       <div class="header-meta">
         <span class="badge badge-date">📅 ${dateDisplay}（週${weekday}）</span>
         <span class="badge badge-count">📊 ${totalCount} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
       </div>
     </div>
   </header>
@@ -411,7 +413,7 @@ async function main() {
   const args = process.argv.slice(2);
   let inputPath = resolve(rootDir, 'papers.json');
   let outputPath = resolve(rootDir, 'docs', 'bed-report.html');
-  const apiKey = process.env.ZHIPU_API_KEY || '';
+  const apiKey = process.env.NVIDIA_API_KEY || '';
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--input' && args[i + 1]) inputPath = args[++i];
@@ -419,7 +421,7 @@ async function main() {
   }
 
   if (!apiKey) {
-    console.error('[ERROR] ZHIPU_API_KEY not set');
+    console.error('[ERROR] NVIDIA_API_KEY not set');
     process.exit(1);
   }
 

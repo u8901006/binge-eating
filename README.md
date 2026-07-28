@@ -1,6 +1,6 @@
 # Binge Eating Research Daily Report
 
-> 暴食症（Binge Eating Disorder）研究文獻日報，每日自動從 PubMed 彙整最新論文，由 Zhipu AI 分析生成。
+> 暴食症（Binge Eating Disorder）研究文獻日報，每日自動從 PubMed 彙整最新論文，由 NVIDIA AI 分析生成。
 
 ## 🌐 網站
 
@@ -10,7 +10,7 @@
 
 1. **GitHub Actions** 每天 GMT+8 07:40 自動執行
 2. 從 **PubMed** 搜尋前 7 天的暴食症相關文獻（排除已總結的論文）
-3. 使用 **Zhipu AI (GLM-5-Turbo)** 進行摘要、分類、PICO 分析
+3. 使用 **NVIDIA Nemotron** 進行摘要、分類、PICO 分析
 4. 生成漂亮的 **HTML 日報**，部署至 GitHub Pages
 
 ## 🔍 搜尋範圍
@@ -29,6 +29,6 @@
 
 - **Node.js 24** - 執行環境
 - **PubMed E-utilities API** - 文獻搜尋
-- **Zhipu AI GLM-5-Turbo** - 文獻分析（Fallback: GLM-4.7 → GLM-4.7-Flash）
+- **NVIDIA Nemotron 3 Super** - 文獻分析（Fallback: Nemotron 3 Nano）
 - **GitHub Actions** - 自動化排程
 - **GitHub Pages** - 靜態網站部署
