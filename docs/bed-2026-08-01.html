@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Binge Eating Research &middot; 暴食症文獻日報 &middot; 2026年8月1日</title>
+<meta name="description" content="2026年8月1日 暴食症（BED）研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 4px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-section { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); margin-bottom: 10px; }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; flex-wrap: wrap; gap: 6px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🍽️</div>
+    <div class="header-text">
+      <h1>Binge Eating Research &middot; 暴食症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年8月1日（週六）</span>
+        <span class="badge badge-count">📊 6 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻聚焦暴食症(BED)的神經機制與腸腦軸互動，特別強調前額葉與視下迴路、GLP-1受體激動劑及童年逆境在病機中的關鍵角色，顯示治療正從單一心理治療轉向生物心理社會整合模式。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>皮質視下神經迴路強迫性進食的小鼠模型證實其與人類暴食症之關聯</h3>
+          <p class="journal-source">Neuron &middot; A cortical-hypothalamic neural circuit for compulsive eating in mice.</p>
+          <p>透過小鼠暴食誘發強迫性進食模式證明額前皮質投射至腳狹區GABA能神經元可雙向調節強迫性進食，並發現人類fMRI顯示此迴路連結強度與體重及暴食發作相關，為BED提供明確神經標靶。</p>
+          <p class="utility-reason">💡 首次證實特定皮質視下迴路在強迫性進食中的因果角色，為開發神經調節或標的藥物治療BED提供明確機制基礎。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">暴食誘發強迫性進食(BiCOM)模式之小鼠及健康人類受試者(fMRI)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">操作額前皮質投射至腳狹區(rZI)GABA能神經元或其輸入通路</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照組為未操作之BiCOM小鼠或無暴食行為之人類控制組</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">強迫性進食雙向改變、額前皮質神經動態持續吸引狀態形成、mPFC-rZI連結強度與人類體重及暴食相關</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">神經科學</span><span class="tag">暴食症診斷</span><span class="tag">肥胰島素樣生長因子相關</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42532033/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🍽️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>腸腦情緒迴路論文整合證據支持GLP-1受體激動劑於暴食症中的應用</h3>
+          <p class="journal-source">The American journal of gastroenterology &middot; The Enterolimbic Axis: Gut-Brain Affective Circuits at the Crossroad of Metabolism, Emotion, and Behavior.</p>
+          <p>整合腸源性訊號（如SCFAs、GLP-1）如何經腸迷走副交感-邊緣系統迴路調節獎賞處理與進食行為，並指出GLP-1雙重激動劑在減重、血糖及減少享樂性進食上的潛力，建議消化科醫師將其視為一線治療選項。</p>
+          <p class="utility-reason">💡 提供跨學科概念框架，強調腸道內分泌在調節暴食中的核心角色，支持GLP-1類藥物在BED中的早期應用。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">肥胖、代謝功能異常相關脂肪肝病、2型糖尿病及暴食症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">GLP-1受體激動劑或雙重GIP/GLP-1激動劑</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑或標準代謝治療</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">體重下降、血糖控制改善、享樂性進食減少</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">GLP-1相關</span><span class="tag">神經科學</span><span class="tag">肥胖與代謝</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41504341/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">⚖️</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>暴食症女性對中等機率金錢獎賞付出更大努力，提示非食物獎賞處理異常</h3>
+          <p class="journal-source">European eating disorders review : the journal of the Eating Disorders Association &middot; Preliminary Investigation of Effort Expenditure for Food and Monetary Rewards in Loss-of-Control Eating.</p>
+          <p>暴食症相關失控進食女性在金錢獎賞中等機率時展現較高努力付出，但食物獎賞任無差異，顯示其動機異常可能擴及非食物強化物，提示獎賞處理廣泛功能失調。</p>
+          <p class="utility-reason">💡 揭示暴食症伴隨廣泛獎賞處理改變，非僅限於食物，有助於開發針對動機與決策功能的心理治療策略。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">大學生女性：失控進食組(n=23) vs 無飲食障礙症狀控制組(n=24)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">食物及金錢版本的努力付出獎賞任務(EEfRT)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">兩組在低/中/高機率獎賞下之選擇行為</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">失控進食組在中等機率金錢獎賞下付出較大努力；食物獎賞無組間差異</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">神經科學</span><span class="tag">情緒調節</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42536965/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🧒</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>童年逆境特別是家庭精神疾病與經濟不安全顯著增加青少年飲食行為問題風險</h3>
+          <p class="journal-source">JAACAP open &middot; Associations Between Adverse Childhood Experiences and Disordered Eating in US Youth: The PLATE Study.</p>
+          <p>基於47,617名青少年的全國性調查，家庭精神疾病及經濟不安全與多種飲食行為問題顯著相關，其效應經憂鬱、焦慮及食物不安全中介，顯示創傷知照與家庭韌性的重要性。</p>
+          <p class="utility-reason">💡 大規模橫斷研究證實早期生活逆境是青少年飲食行為問題的重要社會決定因素，強調預防需從家庭與創傷介入著手。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">美國10-17歲青少年(n=47,617)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">個別不良童年經驗(ACEs)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無該ACE暴露之同儕</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">家庭精神疾病與經濟不安全各增加4種以上飲食行為問題之風險；補償性體重控制行為之調整後OR分別為1.82與2.05</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">創傷與PTSD</span><span class="tag">兒少精神醫學</span><span class="tag">食品不安全</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42534413/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🏃‍♂️</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>暴食症易感運動員之飲食與營養習慣縱向研究方案</h3>
+          <p class="journal-source">Discover mental health &middot; Study protocol of the eating and nutritional habits in athletes and controls longitudinal examination - ENHANCE Study.</p>
+          <p>描述一項針對300名精英運動員及300名對照組之四時點縱向研究，評估運動特定指標在早期識別飲食行為障礙中的診斷準確度，旨在提升運動人口之心理照護。</p>
+          <p class="utility-reason">💡 針對運動員此高風險族群提供結構化縱向評估框架，有助於建立運動特定之早期篩選與介入標準。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">精英運動員(重量敏感項目如芭蕾、健美；非重量敏感項目如足球、球拍運動、籃球)及非運動員對照組</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">運動特定飲食與營養行為評估</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">運動員 vs 對照組</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">飲食行為障礙風險指標、診斷工具準確度(敏感度、特異度、AUC)、群體間測量不變性</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">運動員</span><span class="tag">暴食症診斷</span><span class="tag">營養治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42536095/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">📖</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>暴食症與神經性貪食症共病特徵與治療進展之綜述</h3>
+          <p class="journal-source">Nature reviews. Disease primers &middot; Bulimia nervosa.</p>
+          <p>概述神經性貪食症之流行病學、風險因素、心理行為機制及治療進展，強調認知行為療法為一線治療，但治療落差與早期偵測仍為挑戰，並指出共設計與真實經驗融合具提升可及性潛力。</p>
+          <p class="utility-reason">💡 雖聚焦於神經性貪食症，但其治療框架與預防策略對暴食症具有參考價值，特別是關於療法可及性與早期干預的討論。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">神經性貪食症患者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">心理治療，特別是飲食障礙認知行為療法(CBT-E)</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">其他心理治療或待辦清單控制</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">減少暴食催吐行為、改善身體形象與情緒調節</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症診斷</span><span class="tag">CBT治療</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42532999/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">暴食症診斷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經科學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">GLP-1相關</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">創傷與PTSD</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">運動員</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">營養治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">CBT治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:33%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">暴食症</span><span class="keyword">神經科學</span><span class="keyword">GLP-1</span><span class="keyword">創傷</span><span class="keyword">運動員</span></div></div>
+
+  <div class="links-section">
+    <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">🏥</span>
+      <span class="link-name">李政洋身心診所首頁</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">📬</span>
+      <span class="link-name">訂閱電子報</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+      <span class="link-icon">☕</span>
+      <span class="link-name">Buy Me a Coffee</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/binge-eating">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
