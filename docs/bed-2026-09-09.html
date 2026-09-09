@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Binge Eating Research &middot; 暴食症文獻日報 &middot; 2026年9月9日</title>
+<meta name="description" content="2026年9月9日 暴食症（BED）研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 4px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-section { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); margin-bottom: 10px; }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; flex-wrap: wrap; gap: 6px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🍽️</div>
+    <div class="header-text">
+      <h1>Binge Eating Research &middot; 暴食症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月9日（週三）</span>
+        <span class="badge badge-count">📊 4 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻聚焦於暴食症的診斷界定、社會經濟因素與社群媒體影響，顯示臨床上亟需明確『反彈行為』的頻率門檻以區分 BED 與 BN，同時強調低 SES 與外貌比較行為為重要風險因子，提醒臨床師注意社會脈絡與數位行為在評估中的整合。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🔍</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>經驗性定義「反覆」不適當補償行為：區分暴食症與暴食症譜系障礙的關鍵門檻</h3>
+          <p class="journal-source">The International journal of eating disorders &middot; Empirically Defining "Recurrent" Inappropriate Compensatory Behaviors: Differentiating Binge Eating Disorder From Bulimia Nervosa-Spectrum Disorders.</p>
+          <p>研究建議過去一個月即使只有一次不適當補償行為（如催吐、瀉藥或過度運動）就足以區分暴食症（BED）與暴食症譜系障礙，挑戰 DSM-5-TR 中模糊的「反覆」定義，對診斷精準度與治療選擇具有直接臨床影響。</p>
+          <p class="utility-reason">💡 提供具體經驗門檻（≥1 次/月）以支援臨床診斷決策，有助於避免將進行補償行為的患者誤診為 BED，進而防止使用禁忌的體重減輕介入。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">850 名尋求治療的青少年和成人（76% 女性，平均年齡 29 歲）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（橫斷式研究，基於過去一個月不適當補償行為頻率分組）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">按過去一個月不適當補償行為（ICB）頻率分為四組：0 次、1–25 次、26–55 次、>56 次</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">過去一個月有一次或以上 ICB 即可顯著區分 BED 與 BN 謱系障礙在多項臨床特徵上；ICB0 與 ICB1+ 組在 11/12 項特徵上有顯著差異</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症診斷</span><span class="tag">暴食症流行病學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42706729/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🏘️</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>親代社會經濟地位與青少年暴食症狀：系統評估顯示低教育與低收入家庭風險更高</h3>
+          <p class="journal-source">The International journal of eating disorders &middot; Research Update: A Systematic Review of the Relationship Between Eating Disorder Symptoms and Parental Socioeconomic Status (SES) Among Adolescents.</p>
+          <p> мета分析 51 項研究發現，父母教育程度越高，青少年暴食症狀風險越低（OR=0.83），家庭收入與暴食行為亦呈負相關，顯示社會經濟劣勢是暴食症的重要社會決定因子。</p>
+          <p class="utility-reason">💡 提醒臨床師在評估青少年暴食症時必須考慮社會經濟脈絡，以避免診斷偏差並導向更公平的篩檢與介入策略。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">西方國家的青少年（來自 51 項社區基礎研究）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（系統評估與螺旋分析）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">高 parental SES（教育、收入等）vs 低 parental SES</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">父母較高教育程度與青少年 ED 症狀較少相關（OR=0.83, 95% CI: 0.72–0.95），家庭收入亦與暴食行為負相關</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症流行病學</span><span class="tag">文化與社會</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42705326/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">📱</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>德國驗證社群媒體外貌關注量表顯示：外貌比較行為是臨床樣本中暴食症病理的核心驅動因素</h3>
+          <p class="journal-source">Journal of eating disorders &middot; Appearance-related social media behavior and eating disorder pathology: evidence from the german social media appearance preoccupation scale in nonclinical and clinical samples.</p>
+          <p>德國版 SMAPS 證實「外貌比較」是與暴食症病理最強相關的社群媒體行為，並能顯著區分進食障礙門診患者與健康對照組，提示數位環境中的社會比較機制跨文化一致。</p>
+          <p class="utility-reason">💡 提供經驗證量工具評估社群媒體對 ED 的影響，支援臨床師在評估中納入數位行為風險，尤其對青少年與年輕成人具參考價值。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">非臨床樣本（N=363 年輕成人）與臨床樣本（n=21 食欲障礙門診患者 vs n=37 健康對照）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（橫斷式驗證與群組比較）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">患有飲食障礙的門診患者 vs 健康對照</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">外貌比較行為（SMAPS 子量表）與 ED 病理最顯著相關，並能顯著區分患者與對照組（p=.004, η²ₚ=0.14）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">社群媒體</span><span class="tag">身體意象</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42706548/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🩺</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>銀屑病患者中暴食症狀篩檢陽性率約 12.5%，但與 BMI 無關聯，提醒體重中立評估的重要性</h3>
+          <p class="journal-source">Psoriasis (Auckland, N.Z.) &middot; Screening for Eating Disorders in Psoriasis Patients: A Multicenter Cross-Sectional Study.</p>
+          <p>在超重或肥胖的銀屑病患者中，約有 1/8 人經由 BES 或 EAT-26 篩檢為暴食症狀陽性，但陽性率與 BMI 類別無關，顯示暴食症風險不僅限於較高体重個體。</p>
+          <p class="utility-reason">💡 強調在慢性炎症性疾病（如銀屑病）患者中需常規篩檢飲食障礙，且不可假設只有較高 BMI 者有風險，支持體重中立、併發症導向的照護模式。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">104 名 BMI ≥25 kg/m² 的成人銀屑病患者（多中心橫斷式研究）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">無（使用 BES ≥17 和/或 EAT-26 進行篩檢）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">依 BMI 分層：超重 vs 肥胖，並進一步細分四個類別</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">總體篩檢陽性率 12.5%（13/104）；BMI 不是 ED 篩檢陽性的顯著預測因子（OR=0.942, 95% CI: 0.813–1.091）；BMI 與 BES 無相關，與 EAT-26 有弱負相關（r=-0.211）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症診斷</span><span class="tag">肥胖與代謝</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42708092/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">暴食症診斷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">暴食症流行病學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">社群媒體</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">肥胖與代謝</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">文化與社會</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">身體意象</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:25%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">暴食症診斷</span><span class="keyword">社會經濟地位</span><span class="keyword">社群媒體</span><span class="keyword">體重中立</span><span class="keyword">診斷門檻</span></div></div>
+
+  <div class="links-section">
+    <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">🏥</span>
+      <span class="link-name">李政洋身心診所首頁</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">📬</span>
+      <span class="link-name">訂閱電子報</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+      <span class="link-icon">☕</span>
+      <span class="link-name">Buy Me a Coffee</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/binge-eating">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
