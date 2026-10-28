@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Binge Eating Research &middot; 暴食症文獻日報 &middot; 2026年10月28日</title>
+<meta name="description" content="2026年10月28日 暴食症（BED）研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .utility-reason { font-size: 12px !important; color: var(--accent) !important; opacity: 0.85; margin-top: 4px; }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 100px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-section { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); margin-bottom: 10px; }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; flex-wrap: wrap; gap: 6px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 70px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🍽️</div>
+    <div class="header-text">
+      <h1>Binge Eating Research &middot; 暴食症文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年10月28日（週三）</span>
+        <span class="badge badge-count">📊 15 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻重點聚焦於暴食症（BED）的診斷工具驗證、治療障礙與促進因素、跨診斷共病模式（焦慮/憂鬱/產後/嚴重精神疾病）、以及新型神經調節與藥物治療（GLP-1、rTMS、tDCS）的探索。研究凸顯 BED 在不同族群（亞裔、產婦、青少年、嚴重精神疾病）中高被忽視與低治療率的問題，並強調情緒調節、身體意象與社會污名在發病機制中的核心角色。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">📊</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>ED100K 自報量表對暴食症終身診斷的敏感度極低（僅 0.34），但對廣義暴食行為（BE-BROAD）敏感度高（0.88）</h3>
+          <p class="journal-source">The International journal of eating disorders &middot; Sensitivity and Criterion Validity of ED100K Lifetime Eating Disorder Diagnoses: A Study Using a National Eating Disorder Quality Register.</p>
+          <p>大型國家登記研究（N=15,699）發現 ED100K 對暴食症（BED）診斷敏感度極低（0.34），顯示自報量表難以捕捉頻率與持續時間等診斷標準；廣義暴食行為（BE-BROAD）敏感度高（0.88），建議大規模流行病學與基因組研究採用較寬鬆的暴食篩選定義。</p>
+          <p class="utility-reason">💡 直接影響大型流行病學與基因組研究的案例篩選策略，提醒臨床醫師自報量表嚴重低估 BED 盛行率，需結合訪談確診。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">瑞典 EDGI-SE 群隊中具專科就醫紀錄的 6,889 人及完整群隊 15,699 人</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">ED100K 自報問卷衍生的終身 DSM-IV/DSM-5 診斷與 BE-BROAD</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">國家優質登記（Riksät）中臨床訪斷的診斷</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">BED 診斷敏感度 0.34，BN 0.61，AN 0.84-0.96，BE-BROAD 0.88；所有診斷與專科就醫強相關（標準效度佳）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症診斷</span><span class="tag">暴食症流行病學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42934407/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🚪</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>暴食症與貪食症患者就醫障礙系統性綜合：污名、症状極小化、體系性阻礙為核心主題</h3>
+          <p class="journal-source">Eating disorders &middot; The barriers and facilitators to accessing eating disorder treatment for individuals with bulimia nervosa and binge eating disorder: a systematic review and meta-synthesis.</p>
+          <p>質性系統性綜合（12 研究）歸納出五大主題：隱形與非正統性、治療矛盾心態、污名與羞恥、系統結構阻礙、促進就醫條件；核心發現指出文化社會誤解導致低問題辨識與症狀極小化是一致阻礙。</p>
+          <p class="utility-reason">💡 為改善 BED/BN 低治療率提供實證基礎，指引臨床與公衛端需去污名化、提升醫師識別能力、包容性衛生宣導與多元化服務設計。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">罹患貪食症（BN）與暴食症（BED）的個體</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">質性研究中探討的就醫障礙與促進因素</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">無對照組（質性綜合）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">五大主題：隱形/非正統性、治療矛盾、污名/羞恥、系統阻礙、促進因素；信心等級中到高</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症流行病學</span><span class="tag">文化與社會</span><span class="tag">體重污名</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42929406/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>廣泛性焦慮、重性憂鬱、恐慌症女患者合併暴食症比例高（GAD 13.3%），跨診斷視角揭示飲食病理與臨床嚴重度關聯</h3>
+          <p class="journal-source">The International journal of eating disorders &middot; Disordered Eating Behaviors and Comorbid Binge-Eating Disorder in Female Patients With Generalized Anxiety Disorder, Major Depressive Disorder, and Panic Disorder: A Transdiagnostic Approach.</p>
+          <p>精神科門診女性患者（N=158）中飲食態度異常比例顯著高於對照組（GAD 31.7%、PD 25%、MDD 19.3% vs 5.9%）；GAD 合併 BED（13.3%）與較年輕、較重憂鬱焦慮症狀相關，支持跨診斷整合篩查與治療。</p>
+          <p class="utility-reason">💡 實證支持在焦慮/憂鬱/恐慌症常規評估中納入飲食病理篩查，跨診斷處理可改善整體預後。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">SCID-5 確診 GAD (62)、MDD (62)、PD (36) 的女性門診患者及 168 名健康對照</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">EAT-40、BDI、BAI 評估飲食病理與症狀嚴重度</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組；三組精神疾患間比較</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">所有臨床組 EAT-40 顯著高於對照；GAD 合併 BED 13.3%，相關年齡輕、BDI/BAI 分數高</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症診斷</span><span class="tag">暴食症流行病學</span><span class="tag">情緒調節</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42928507/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">🤱</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>妊娠糖尿病產婦複發性暴食（38.9%）與產後憂鬱（26.3%）高度共存，暴食者罹患產後憂鬱風險約 2 倍</h3>
+          <p class="journal-source">International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics &middot; Intersecting pathways of postpartum depressive symptoms and recurrent binge eating after gestational diabetes: Findings from the LINDA-Brazil cohort.</p>
+          <p>巴西妊娠糖尿病產婦隊列（N=699）顯示複發性暴食（RBE）盛行率 38.9%，產後憂鬱（PPD）26.3%，兩者共病 15.9%；RBE 為 PPD 的顯著預測因子（PR=2.17），產後體重保留 >5kg 與年輕年齡為 RBE 風險因子。</p>
+          <p class="utility-reason">💡 產科與精神科需合作，對妊娠糖尿病產婦常規篩查暴食與情緒，早期介入可斷開惡性循環。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">有妊娠糖尿病病史的產婦 699 名（LINDA-Brazil 隊列）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">橫斷面評估 RBE（自我報告）、EPDS≥13 定義 PPD</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">有無 RBE 組別比較 PPD 盛行率</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">RBE 組 PPD 盛行率約 2 倍（PR 2.17, 95% CI 1.63-2.88）；RBE 相關年輕、產後體重保留>5kg</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">暴食症流行病學</span><span class="tag">肥胖與代謝</span><span class="tag">兒少精神醫學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42921692/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">🧲</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>左額葉 rTMS 對成人肥胖者食慾指標無效，但次要分析顯示暴食症狀嚴重度顯著改善（-5.6 分，p=0.045）</h3>
+          <p class="journal-source">Clinical nutrition ESPEN &middot; Effects of repetitive transcranial magnetic stimulation on appetite-related outcomes in adults with obesity: A randomized, double-blind, sham-controlled trial.</p>
+          <p>雙盲安慰劑對照 RCT（N=51，24 次 10Hz rTMS）主要終點食慾 VAS 無差異，但 BES 暴食嚴重度顯著下降；提示 rTMS 可能透過調節前額葉控制衝動而非飢餓感發揮作用。</p>
+          <p class="utility-reason">💡 提供神經調節治療 BED 的初步 RCT 證據，但樣本小、為次要終點，需大型專門針對 BED 的試驗驗證。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">成人肥胖者 51 名（含暴食症狀者）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">左 DLPFC 10Hz rTMS，24 次/8 週</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">假性 rTMS</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">主要終點食慾 VAS 無差異；次要終點 BES 暴食嚴重度組間差 -5.6 分 (95% CI -11.09 to -0.12, p=0.045)；體重、代謝指標無變化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">神經科學</span><span class="tag">藥物治療</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42906883/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#6</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>嚴重精神疾病患者抗精神病藥增重背景下，ABMT 合併真實 tDCS 可顯著降低暴食事件與食物接近偏向</h3>
+          <p class="journal-source">Early intervention in psychiatry &middot; Combining Cognitive Training and Brain Stimulation: A Novel Approach to Address Disordered Eating and Antipsychotic-Induced Weight Gain in People With Severe Mental Illness.</p>
+          <p>雙盲 RCT（N=28，精神分裂症/分裂情感性疾病）顯示 ABMT+真實 tDCS 組暴食事件顯著減少（組內 p<0.05）、食物接近偏向下降、迴避偏向上升；效應量中等（d=-0.6），可行性佳（留存率 78.6%）。</p>
+          <p class="utility-reason">💡 針對高風險、高共病族群提供創新非藥物介入方向，但樣本極小、無長期追蹤，屬可行性研究階段。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">穩定劑量抗精神病藥治療的精神分裂症/分裂情感性疾病成人 28 名</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">ABMT（5 次）合併真實 tDCS</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">ABMT 合併假性 tDCS</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">真實 tDCS 組：暴食事件顯著減少、食物接近偏向下降、迴避偏向上升（p<0.05）；效應量 d=-0.6</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">神經科學</span><span class="tag">藥物治療</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42929065/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#7</span>
+            <span class="emoji-icon">💉</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>青少年嚴重肥胖使用 GLP-1 受體激動劑：效益顯著但須多維評估心理風險（焦慮、憂鬱、暴食、創傷）</h3>
+          <p class="journal-source">Irish medical journal &middot; GLP-1 Receptor Agonists in Adolescents with Severe Obesity.</p>
+          <p>評論文章指出 GLP-1 RA 在青少年嚴重肥胖療效顯著，但臨床試驗常排除精神共病患者；實務上須跨領域評估心理健康、暴食風險、社會脈絡與家庭支持，避免單看 BMI 開立處方。</p>
+          <p class="utility-reason">💡 直接指導臨床處方決策：開立 GLP-1 RA 前必須篩查 BED/情緒/創傷，並建立多專科追蹤機制。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">嚴重肥胖青少年（臨床實務族群）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">GLP-1 受體激動劑治療</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">行為治療單獨或安慰劑（既有試驗脈絡）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">BMI 顯著下降、心臟代謝指標改善；但長期神經發展與心理影響未知，高共病族群常被試驗排除</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">GLP-1相關</span><span class="tag">兒少精神醫學</span><span class="tag">肥胖與代謝</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42936349/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#8</span>
+            <span class="emoji-icon">👨‍👩‍👧‍👦</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>青少年肥胖治療綜述：家庭為基礎多元行為療法為基石，GLP-1 RA（semaglutide/liraglutide）可額外降低 BMI 但腸胃副作用多</h3>
+          <p class="journal-source">Nutrients &middot; Emerging Therapeutic Strategies for Child and Adolescent Obesity: A Narrative Review.</p>
+          <p>敘述性綜述（2010-2026）指出：家庭基礎多元行為療法為最佳證據基石；未治療 ADHD 預測 BMI 反應較差；專業監督的體重治療不惡化飲食病理；GLP-1 RA 與 phentermine/topiramate 數值降幅較大但缺乏頭對頭比較。</p>
+          <p class="utility-reason">💡 整合最新證據指導兒少肥胖與 BED 共病的分級治療決策，強調 ADHD 篩查與家庭參與的關鍵性。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">兒童青少年肥胖族群（含共病 BED/ADHD）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">生活型態、家庭行為、心理、藥物（GLP-1 RA 等）綜合策略</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">單一介入或常規照護</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">家庭多元行為療法為基石；GLP-1 RA 額外降 BMI 但 GI 副作用高；未治療 ADHD 為預後不良因子</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">兒少精神醫學</span><span class="tag">肥胖與代謝</span><span class="tag">GLP-1相關</span><span class="tag">藥物治療</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42943020/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🏃</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>飲食障礙運動療法結果指標範圍綜述：體成分最常測量，力量與心肺適能測試安全可行</h3>
+          <p class="journal-source">BJPsych open</p>
+          <p>範圍綜述（26 研究，BED 佔 19%）歸納運動介入常用評估指標：體成分（26）、飲食病理（21）、主觀活動量（13）、運動評估（11）；力量與心肺適能測試在適當情境下安全且提供額外健康洞見。</p>
+          <div class="card-footer">
+            <span class="tag">運動與身體活動</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42929080/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🌏</span>
+            <span class="utility-high utility-sm">高</span>
+          </div>
+          <h3>講華語亞裔美國人飲食障礙治療利用極低（76.5% 從未就醫），文化語言適配服務迫切</h3>
+          <p class="journal-source">The International journal of eating disorders</p>
+          <p>橫斷研究（N=196）發現 76.5% 華語亞裔從未接受 ED 治療，求醫延遲 ≥6 月者達 60.5%；女性較受體重霸凌、社會關係衝擊影響，康復優先順位有性別差異，需文化語言適配介入。</p>
+          <div class="card-footer">
+            <span class="tag">文化與社會</span><span class="tag">暴食症流行病學</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42928496/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🪑</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>椅子技術結合 ACT 治療飲食障礙：臨床經驗顯示惡性批評者模式減弱、心理彈性提升，但缺乏對照實證</h3>
+          <p class="journal-source">La Clinica terapeutica</p>
+          <p>烏克蘭私人診所 167 例臨床經驗（AN/BN/BED）整合椅子技術與 ACT 歷程，事後觀察到批評者/保護者模式改變、症狀下降、心理彈性上升；屬實務分享非 RCT，需進一步嚴謹研究驗證。</p>
+          <div class="card-footer">
+            <span class="tag">ACT治療</span><span class="tag">情緒調節</span><span class="tag">暴食症診斷</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42922220/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧬</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>青少年持續超重軌跡與大腦皮質成熟異常、DNA 甲基化變異相關，暴食/節食行為更頻繁</h3>
+          <p class="journal-source">Biological psychiatry global open science</p>
+          <p>IMAGEN 隊列（N=1296，14-23 歲）潛在剖面分析辨識持續超重組：皮質變薄緩慢、溝深減少加速、額顳聯絡區灰質體積損失減少；EWAS 鑑定 29 個 CpG 與生成、發炎、大腦相關基因富集；甲基化風險分數可預測持續超重。</p>
+          <div class="card-footer">
+            <span class="tag">神經科學</span><span class="tag">兒少精神醫學</span><span class="tag">肥胖與代謝</span><span class="tag">暴食症流行病學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42921060/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">😔</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>飲食障礙心理社會功能受損差異：BN 與非典型厭食症受損最重，情緒調節困難為關鍵中介</h3>
+          <p class="journal-source">Journal of eating disorders</p>
+          <p>專科門診 193 女性潛在類別分析出三種情緒調節剖面（低/中/高）；高調節困難組飲食病理、憂鬱、焦慮、NSSI 顯著較高；BN 與 OSFED-AN 社會功能受損最嚴重，情緒調節為核心治療標的。</p>
+          <div class="card-footer">
+            <span class="tag">情緒調節</span><span class="tag">暴食症診斷</span><span class="tag">暴食症流行病學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42920167/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">📱</span>
+            <span class="utility-mid utility-sm">中</span>
+          </div>
+          <h3>媒體瘦身壓力與體重污名雙軌並行影響大學生飲食失調：瘦理想內化與體重偏見內化為串聯中介</h3>
+          <p class="journal-source">Eating behaviors</p>
+          <p>路徑分析（N=380 女大生）支持媒體瘦身壓力與體重污名經驗透過瘦理想內化→體重偏見內化串聯中介預測飲食失調；強化媒體素養與反污名介入的理論基礎。</p>
+          <div class="card-footer">
+            <span class="tag">體重污名</span><span class="tag">社群媒體</span><span class="tag">身體意象</span><span class="tag">暴食症流行病學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42925867/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="card-header-row">
+            <span class="emoji-sm">🧩</span>
+            <span class="utility-low utility-sm">低</span>
+          </div>
+          <h3>負向迫切性中介憂鬱與身體不滿關聯，且僅在男性顯著，提示性別差異介入需求</h3>
+          <p class="journal-source">Journal of health psychology</p>
+          <p>Rockland 樣本（N=232）路徑分析顯示負向迫切性（負面情緒下衝動行為）中介憂鬱→身體不滿，效應僅存在於男性；凸顯針對男性衝動與情緒調節介入的必要性。</p>
+          <div class="card-footer">
+            <span class="tag">情緒調節</span><span class="tag">身體意象</span><span class="tag">暴食症流行病學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41830188/" target="_blank">PubMed &rarr;</a>
+          </div>
+        </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">暴食症診斷</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:80%"></div></div>
+              <span class="topic-count">4</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">暴食症流行病學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">5</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經科學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">藥物治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">GLP-1相關</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">兒少精神醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">肥胖與代謝</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">情緒調節</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:60%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">文化與社會</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">體重污名</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">ACT治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">運動與身體活動</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">身體意象</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:40%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">創傷與PTSD</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">社群媒體</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:20%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">暴食症診斷</span><span class="keyword">暴食症流行病學</span><span class="keyword">GLP-1相關</span><span class="keyword">神經科學</span><span class="keyword">情緒調節</span><span class="keyword">兒少精神醫學</span><span class="keyword">肥胖與代謝</span><span class="keyword">文化與社會</span><span class="keyword">體重污名</span><span class="keyword">跨診斷</span></div></div>
+
+  <div class="links-section">
+    <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">🏥</span>
+      <span class="link-name">李政洋身心診所首頁</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">📬</span>
+      <span class="link-name">訂閱電子報</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+      <span class="link-icon">☕</span>
+      <span class="link-name">Buy Me a Coffee</span>
+      <span class="link-arrow">&rarr;</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-ultra-550b-a55b</span>
+    <span><a href="https://github.com/u8901006/binge-eating">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
